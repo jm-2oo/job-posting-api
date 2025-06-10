@@ -9,6 +9,7 @@
 
 - I created a script to connect to Reed's API that returned a list of job postings with my requirements
 - The script calls Reed's API and transforms the API JSON data into a Pandas dataframe before exporting it as a CSV
+- [Link to script](/reed_api/reed_api_script.py)
 - I've included a redacted screenshot of the output file below:
 
 ![sample_data](/misc_code/reed_api_screenshot.png)
