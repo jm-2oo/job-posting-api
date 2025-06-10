@@ -13,8 +13,8 @@ with open(secrets_path, "r") as f:
     secrets = json.load(f)
 
 #use secret
-api_key = secrets["API_KEY"]
-password = 'blank'
+api_key = secrets['API_KEY']
+password = secrets['PASSWORD']
 
 keyword = 'data analyst'
 location = 'UK'
