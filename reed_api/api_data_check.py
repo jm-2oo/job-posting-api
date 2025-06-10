@@ -1,3 +1,5 @@
+##useful code for future reference##
+
 from requests.auth import HTTPBasicAuth
 import requests
 import json
@@ -6,7 +8,7 @@ import csv
 from pathlib import Path
 
 #define path to secrets
-secrets_path = Path('reed_api/secrets/config.json')
+secrets_path = Path("secrets/config.json")
 
 #get secrets
 with open(secrets_path, "r") as f:
@@ -17,10 +19,10 @@ api_key = secrets["API_KEY"]
 password = 'blank'
 
 keyword = 'data analyst'
-location = 'UK'
+location = 'united kingdom'
 distance = 5
-direct_employer = 'true'
-limit_results = ''
+direct_employer = ''
+limit_results = '3'
 
 url = f'https://www.reed.co.uk/api/1.0/search?keywords={keyword}&locationName={location}&distanceFromLocation={distance}&postedByDirectEmployer={direct_employer}&resultsToTake={limit_results}'
 
@@ -28,16 +30,10 @@ url = f'https://www.reed.co.uk/api/1.0/search?keywords={keyword}&locationName={l
 response = requests.get(url, auth = HTTPBasicAuth(api_key, password))
 result = response.json()
 
-#convert to list
-result = list(result.values())
-
-#get only the first items from the list
-data = result[0]
-
-#flatten json and conver to df
-flatten_json = pd.json_normalize(data)
-df = pd.DataFrame(flatten_json)
-
-#write to CSV
-df.to_csv('reed.csv', index='False')
-print('Saved as: reed.csv')
+##check if it's a list or dictionary##
+if isinstance(result, dict):
+    print("It's a dictionary.")
+elif isinstance(result, list):
+    print("It's a list.")
+else:
+    print("It's something else.")
