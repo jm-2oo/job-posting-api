@@ -28,16 +28,16 @@ url = f'https://www.reed.co.uk/api/1.0/search?keywords={keyword}&locationName={l
 response = requests.get(url, auth = HTTPBasicAuth(api_key, password))
 result = response.json()
 
-#convert to list so can export to csv
-data = list(result.values())
+#convert to list
+result = list(result.values())
 
-#get only the first item in the list 
-job_list = data[0]
+#get only the first items from the list
+data = result[0]
+
+#flatten json and conver to df
+flatten_json = pd.json_normalize(data)
+df = pd.DataFrame(flatten_json)
 
 #write to CSV
-with open('reed.csv', 'w', newline='') as file:
-    writer = csv.DictWriter(file, fieldnames=job_list[0].keys())
-    writer.writeheader()
-    writer.writerows(job_list)
-
-print("CSV saved: reed.csv")
+df.to_csv('reed.csv', index='False')
+print('Saved as: reed.csv')
