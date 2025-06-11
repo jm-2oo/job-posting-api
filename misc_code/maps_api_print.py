@@ -27,7 +27,18 @@ place_id_list = []
 #get the place_id only
 for result in response['results']:
     place_id_list.append(result['place_id'])
-    
+
+#############################################
+## to only print result
+# for pid in place_id_list:
+#     details = gmaps.place(place_id=pid)
+#     result = details.get('result', {})
+#     name = result.get('name')
+#     website = result.get('website')
+
+#     print(f'Name: {name}, Website: {website}')
+##############################################
+
 #store below output 
 place_data = []
 
