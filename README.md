@@ -34,6 +34,8 @@
 - I used Python's googlemaps library
 - I could export the list as a CSV so I could review it further
 - [Link to script](api_scripts/maps_api_script.py)
-- As an example, below is a list of restaurants
+- As an example, below is a list of art galleries Central London
+
+![sample_data](/misc_code/gallery_maps_api_screenshot.png)
 
 
