@@ -12,7 +12,7 @@
 - [Link to script](/api_scripts/reed_api_script.py)
 - I've included a redacted screenshot of the output file below:
 
-![sample_data](/misc_code/reed_api_screenshot.png)
+![sample_data](/api_scripts/reed_api_screenshot.png)
 
 ### Next Steps
 
