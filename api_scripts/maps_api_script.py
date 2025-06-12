@@ -30,6 +30,7 @@ for result in response['results']:
     place_id_result = result['place_id'] #get place_ids and put in place_id_result with result()
     place_id_list.append(place_id_result) #append place_ids to empty list
 
+#with place_ids, get the place detail and store in list
 place_data = [] #declare empty list
 
 for pid in place_id_list:
