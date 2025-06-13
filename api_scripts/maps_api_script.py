@@ -5,6 +5,7 @@ import googlemaps
 import time
 import pandas as pd
 import time
+import os
 
 #secret stuff
 secrets_path = Path('secrets/config.json')
@@ -46,6 +47,12 @@ for pid in place_id_list:
 df = pd.DataFrame(place_data)
 
 #export to csv
-version = 'art'
-df.to_csv('output_data/maps_' + version + '.csv', index='False')
-print('Saved as:' + 'maps_' + version + '.csv')
+file_name = 'art_gallery' 
+file_path = 'output_data/maps_' + file_name + '.csv' #specify file path
+
+# Check if the file exists
+if os.path.exists(file_path):
+   print('The file already exists, create a new file name.')
+else:
+   df.to_csv('output_data/maps_' + file_name + '.csv', index='False')
+   print('Saved as:' + 'maps_' + file_name + '.csv')
