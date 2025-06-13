@@ -36,13 +36,11 @@ place_data = [] #declare empty list
 for pid in place_id_list:
     details = gmaps.place(place_id=pid) #iterate through place_ids to get place details
     result = details.get('result', {})  #get 'result' from places, return {} if not found
-    place_details = {                      #extract the name, website and address (JSON markup)
+    place_data.append({                      #extract the name, website and address (JSON markup) and append to place_data
         'Name': result.get('name'),
         'Website': result.get('website'),
         'Address': result.get('formatted_address')
-    }
-    
-place_data.append(place_details) #append to place_data
+    })
 
 #store as a df
 df = pd.DataFrame(place_data)
